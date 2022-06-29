@@ -67,9 +67,10 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="TabTwo"
       screenOptions={{
+        headerTintColor: '#fff',
         headerTitle: `Olá, ${username}`,
-        headerStyle: { backgroundColor: '#005a8c' },
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        headerStyle: { backgroundColor: '#006eab', },
+        // tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
       <BottomTab.Screen
         name="TabOne"
@@ -90,7 +91,7 @@ function BottomTabNavigator() {
                 name="user-circle"
                 size={25}
                 color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
+                style={{ marginRight: 15, }}
               />
             </Pressable>
           ),
@@ -115,7 +116,7 @@ function BottomTabNavigator() {
                 name="user-circle"
                 size={25}
                 color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
+                style={{ marginRight: 15, color: '#fff' }}
               />
             </Pressable>
           ),
