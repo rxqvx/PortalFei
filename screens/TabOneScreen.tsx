@@ -1,15 +1,24 @@
-import { StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { Button, StyleSheet, TextInput } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import { View, Text } from '../components/Themed';
+import { AppContext } from '../contexts/appContext';
 import { RootTabScreenProps } from '../types';
 
+
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+
+  const { username, setUsername } = React.useContext(AppContext)
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <Text>Insira o nome:</Text>
+      <TextInput
+        onChangeText={text => setUsername(text.toUpperCase())}
+        value={username}
+        placeholder="Ex.: RIQUE"
+        keyboardType="default"
+      />
+      <Button title="Clear" onPress={() => setUsername('')} />
     </View>
   );
 }
@@ -19,14 +28,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
   },
 });
