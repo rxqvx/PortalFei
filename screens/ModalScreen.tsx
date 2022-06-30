@@ -1,17 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
+import { useContext } from 'react';
+import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { AppContext } from '../contexts/appContext';
+import { Divider } from '@rneui/base';
 
 export default function ModalScreen() {
+  const { username } = React.useContext(AppContext)
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/ModalScreen.tsx" />
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
+      <View style={{ width: 350, height: 400, backgroundColor: '#fff', borderRadius: 20 }}>
+        <Text style={{ textAlign: 'center', fontSize: 16 }}>{username}</Text>
+        <Divider />
+      </View>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
     </View>
   );
@@ -22,6 +25,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#006eab'
   },
   title: {
     fontSize: 20,
