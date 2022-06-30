@@ -2,12 +2,12 @@ import { StyleSheet, Image, Dimensions } from 'react-native';
 
 import { View } from '../components/Themed';
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = windowWidth * (100 / 60);
+const windowHeight = windowWidth * (100 / 55);
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
       <Image
-        style={{ width: windowWidth, height: windowHeight, marginTop: 40 }}
+        style={{ width: windowWidth, height: windowHeight,  }}
         source={require('../assets/images/1.png')}
       />
     </View>
