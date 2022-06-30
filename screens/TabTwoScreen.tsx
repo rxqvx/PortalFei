@@ -7,7 +7,7 @@ export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
       <Image
-        style={{ width: windowWidth, height: windowHeight, marginTop: 40 }}
+        style={{ width: windowWidth, height: windowHeight }}
         source={require('../assets/images/1.png')}
       />
     </View>

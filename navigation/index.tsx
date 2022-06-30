@@ -91,7 +91,7 @@ function BottomTabNavigator() {
                 name="user-circle"
                 size={25}
                 color={Colors[colorScheme].text}
-                style={{ marginRight: 15, }}
+                style={{ marginRight: 15, color: '#fff' }}
               />
             </Pressable>
           ),
