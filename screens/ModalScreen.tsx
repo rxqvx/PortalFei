@@ -10,6 +10,10 @@ import { Avatar, Icon } from '@rneui/themed';
 export default function ModalScreen() {
   const { username, nickname } = React.useContext(AppContext)
 
+  let userzada: string = JSON.stringify(username);//retorna o username como stringconstructor então parsear pra string, so que ai vem com aspas 
+  userzada = userzada.replace(/\w+/g, function (w) { return w[0].toUpperCase() + w.slice(1).toLowerCase(); });//basicamente um pascal case
+  userzada = userzada.replace(/"/g, '')//remover todas as aspas do texto (/g é global)
+
   const RandomRa = () => {
     const hundred = Math.floor(Math.random() * (1000 - 100) + 100)
     const number = Math.floor(Math.random() * (1 - 10) + 10)
@@ -33,7 +37,7 @@ export default function ModalScreen() {
       />
       <View style={styles.backgroundzada}>
         <View style={styles.divOfUser}>
-          <Text style={styles.usernameRa}>{username}</Text>
+          <Text style={styles.usernameRa}>{userzada}</Text>
           <Text style={styles.nicknameTitle}>({nickname})</Text>
         </View>
         <View style={styles.divDaMatricula}>

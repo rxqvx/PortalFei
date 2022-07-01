@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button, StyleSheet, TextInput, } from 'react-native';
 import { View, Text } from '../components/Themed';
 import { AppContext } from '../contexts/appContext';
@@ -13,18 +13,24 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
     const newNickname = text.toLowerCase();
 
     setNickname(newNickname)
-    SecureStore.setItemAsync("nicknameStorage", nickname)
+    SecureStore.setItemAsync("nicknameStorage", newNickname)
   }
 
+  const handleUserNameInputChange = (text: string) => {
+    const newUsername = text.toUpperCase();
+
+    setUsername(newUsername)
+    SecureStore.setItemAsync("usernameStorage", newUsername)
+  }
 
   return (
     <>
       <View style={styles.container}>
         <Text style={{ color: '#000' }}>Insira o nome:</Text>
         <TextInput
-          onChangeText={text => setUsername(text.toUpperCase())}
-          value={username}
+          onChangeText={newText => handleUserNameInputChange(newText)}
           placeholder="Ex.: HENRIQUE"
+          value={username}
           keyboardType="default"
         />
         <Button title="Clear" onPress={() => setUsername('')} />
@@ -32,7 +38,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
       <View style={styles.container}>
         <Text style={{ color: '#000' }}>Insira o usuário:</Text>
         <TextInput
-          onChangeText={(text) => handleNickNameInputChange(text)}
+          onChangeText={handleNickNameInputChange}
           value={nickname}
           placeholder="Ex.: unifhkonishi"
           keyboardType="default"

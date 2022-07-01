@@ -8,7 +8,7 @@ import * as SecureStore from 'expo-secure-store';
 import { AppContext } from '../contexts/appContext';
 
 export default function TabTwoScreen() {
-  const { setNickname } = React.useContext(AppContext);
+  const { setNickname, setUsername } = React.useContext(AppContext);
 
   const getValueFor = async (key: any) => {
     const result = await SecureStore.getItemAsync(key);
@@ -17,11 +17,14 @@ export default function TabTwoScreen() {
   }
 
   const load = async () => {
-    const response = await getValueFor("nicknameStorage");
+    const responseNick = await getValueFor("nicknameStorage");
+    const responseUser = await getValueFor("usernameStorage")
 
-    console.log("nick capturado: ", response)
-    if (response) {
-      setNickname(response);
+    if (responseNick) {
+      setNickname(responseNick);
+    }
+    if (responseUser) {
+      setUsername(responseUser);
     }
   }
 
