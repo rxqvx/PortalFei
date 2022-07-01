@@ -45,7 +45,7 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal', headerStyle: { backgroundColor: '#006eab' }, headerTintColor: '#FFFF' }}>
-        <Stack.Screen name="Menu" component={ModalScreen} />
+        <Stack.Screen name="Meu Perfil" component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -83,7 +83,7 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate('Menu')}
+              onPress={() => navigation.navigate('Meu Perfil')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>
@@ -108,7 +108,7 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate('Menu')}
+              onPress={() => navigation.navigate('Meu Perfil')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>

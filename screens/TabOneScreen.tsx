@@ -8,18 +8,30 @@ import { RootTabScreenProps } from '../types';
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
 
-  const { username, setUsername } = React.useContext(AppContext)
+  const { username, setUsername, nickname, setNickname } = React.useContext(AppContext)
   return (
+    <>
     <View style={styles.container}>
       <Text>Insira o nome:</Text>
       <TextInput
         onChangeText={text => setUsername(text.toUpperCase())}
         value={username}
-        placeholder="Ex.: RIQUE"
+        placeholder="Ex.: HENRIQUE"
         keyboardType="default"
       />
       <Button title="Clear" onPress={() => setUsername('')} />
     </View>
+    <View style={styles.container}>
+      <Text>Insira o usuário:</Text>
+      <TextInput
+        onChangeText={text => setNickname(text.toLowerCase())}
+        value={nickname}
+        placeholder="Ex.: unifhkonishi"
+        keyboardType="default"
+      />
+      <Button title="Clear" onPress={() => setNickname('')} />
+    </View>
+    </>
   );
 }
 
