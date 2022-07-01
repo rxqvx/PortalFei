@@ -59,26 +59,23 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
-  // const [username, setUsername] = React.useState('');
   const { username } = React.useContext(AppContext)
 
   return (
-    // <AppContextProvider>
     <BottomTab.Navigator
       initialRouteName="TabTwo"
       screenOptions={{
         headerTintColor: '#fff',
         headerTitle: `Olá, ${username}`,
         headerStyle: { backgroundColor: '#006eab', },
-        // tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarActiveTintColor: '#e0e4e7',
+        tabBarInactiveTintColor: '#528daf',
       }}>
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           tabBarStyle: { backgroundColor: '#005a8c' },
-          tabBarActiveTintColor: '#e0e4e7',
-          tabBarInactiveTintColor: '#528daf',
           title: 'setName',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
@@ -103,8 +100,6 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<'TabTwo'>) => ({
           title: 'Home',
           tabBarStyle: { backgroundColor: '#005a8c' },
-          tabBarActiveTintColor: '#e0e4e7',
-          tabBarInactiveTintColor: '#528daf',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
@@ -123,7 +118,6 @@ function BottomTabNavigator() {
         })}
       />
     </BottomTab.Navigator>
-    // </AppContextProvider>
   );
 }
 
