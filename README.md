@@ -11,3 +11,6 @@ use o nvm caso for instalar o node que virá com o npm, ai para instalar o yarn 
 
 - React Native Elements
 ```yarn add @rneui/themed @rneui/base```
+
+# Rodar o projeto
+- ```yarn android```
