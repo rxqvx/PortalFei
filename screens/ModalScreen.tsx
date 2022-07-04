@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
@@ -6,9 +6,11 @@ import { Text, View } from '../components/Themed';
 import { AppContext } from '../contexts/appContext';
 import { Divider } from '@rneui/base';
 import { Avatar, Icon } from '@rneui/themed';
+import * as ImagePicker from 'expo-image-picker';
 
 export default function ModalScreen() {
   const { username, nickname } = React.useContext(AppContext)
+  const [image, setImage] = useState(null)
 
   let userzada: string = JSON.stringify(username);//retorna o username como stringconstructor então parsear pra string, so que ai vem com aspas 
   userzada = userzada.replace(/\w+/g, function (w) { return w[0].toUpperCase() + w.slice(1).toLowerCase(); });//basicamente um pascal case
@@ -26,7 +28,30 @@ export default function ModalScreen() {
     );
   }
 
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
 
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+
+  const handleImage = (image: string) => {
+    const user = "../assets/images/user-solid.svg"
+    if (image) {
+      return image
+    }
+    if (image === null) {
+      return user;
+    }
+    return
+  };
   return (
     <View style={styles.container}>
       <Avatar
@@ -34,6 +59,10 @@ export default function ModalScreen() {
         rounded
         icon={{ name: 'user', type: 'font-awesome', }}
         containerStyle={styles.containerStyle}
+        onPress={pickImage}
+        source={{
+          uri: handleImage(image),
+        }}
       />
       <View style={styles.backgroundzada}>
         <View style={styles.divOfUser}>
@@ -89,7 +118,7 @@ const styles = StyleSheet.create({
   },
   containerStyle: {
     zIndex: 1,
-    borderWidth: 3.5,
+    borderWidth: 5,
     borderColor: '#fff',
     backgroundColor: '#757575',
     position: 'absolute',
