@@ -12,5 +12,8 @@ use o nvm caso for instalar o node que virá com o npm, ai para instalar o yarn 
 - React Native Elements
 ```yarn add @rneui/themed @rneui/base```
 
+- ImagePicker do expo
+```yarn expo install expo-image-picker```
+
 # Rodar o projeto
 - ```yarn android```
