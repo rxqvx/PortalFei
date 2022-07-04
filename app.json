@@ -1,8 +1,7 @@
 {
-      
   "expo": {
-    "name": "aprendendoReactNavigation",
-    "slug": "aprendendoReactNavigation",
+    "name": "PortalFei",
+    "slug": "PortalFei",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -34,7 +33,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logofei.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.rxqvx.ProjetoFei"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
