@@ -1,6 +1,6 @@
-import { StyleSheet, Image, Dimensions } from 'react-native';
+import { StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
 
-import { View } from '../components/Themed';
+import { View, Text } from '../components/Themed';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = windowWidth * (100 / 55);
 import React from 'react'
@@ -34,10 +34,22 @@ export default function TabTwoScreen() {
 
   return (
     <View style={styles.container}>
-      <Image
+      {/* <Image
         style={{ width: windowWidth, height: windowHeight }}
         source={require('../assets/images/1.png')}
-      />
+      /> */}
+      <ScrollView>
+        <View style={styles.divsHome}>
+          <Text style={styles.title1}>Atenção</Text>
+          <Text style={styles.text1}>Se o seu aplicativo estiver aparecendo o erro 403, é preciso acessar o Portal do Aluno na versão web e dar o aceite no termo de responsabilidade para retomada das aulas presenciais 1º semestre 2022 e depois acessar normalmente o aplicativo.</Text>
+        </View>
+        <View style={styles.divsHome1}>
+          <Text style={styles.title1}>Aviso - Aulas Presenciais</Text>
+          <Text style={styles.text1}>Como previsto no calendário escolar, o início das aulas do 1º semestre de 2022 ocorrerá no dia 14 de fevereiro PRESENCIALMENTE.</Text>
+          <Text style={styles.text2}> A FEI está preparada para receber sua comunidade e contamos com a colaboração de todos para desenvolvermos as atividades acadêmicas com segurança, harmonia e motivação.</Text>
+          <Text style={styles.text2}>Informaçõese específicas serãoveiculadas ao longo dos próximos dias. Centro Universitário FEI.</Text>
+        </View>
+      </ScrollView>
 
     </View>
   );
@@ -47,6 +59,38 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#006eab'
+  },
+  divsHome: {
+    width: 370,
+    height: 400,
+    backgroundColor: '#004580',
+    borderRadius: 15,
+    margin: 10,
+  },
+  divsHome1: {
+    width: 370,
+    height: 580,
+    backgroundColor: '#004580',
+    borderRadius: 15,
+    margin: 10,
+  },
+  title1: {
+    // padding: 10,
+    paddingLeft: 10,
+    color: 'red',
+    fontSize: 22,
+    fontWeight: 'bold'
+  },
+  text1: {
+    fontSize: 25,
+    color: '#fff',
+    padding: 10
+  },
+  text2: {
+    fontSize: 25,
+    color: '#fff',
+    padding: 10,
+    paddingTop: 10,
   },
 });

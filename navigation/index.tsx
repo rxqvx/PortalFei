@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from '@expo/vector-icons';
+import { Entypo, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -17,6 +17,9 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import AcademicScreen from '../screens/AcademicScreen';
+import RequestsScreen from '../screens/RequestsScreen';
+import MoreScreen from '../screens/MoreScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -117,6 +120,75 @@ function BottomTabNavigator() {
           ),
         })}
       />
+      <BottomTab.Screen
+        name="Academic"
+        component={AcademicScreen}
+        options={({ navigation }: RootTabScreenProps<'Academic'>) => ({
+          title: 'Acadêmico',
+          tabBarStyle: { backgroundColor: '#005a8c' },
+          tabBarIcon: ({ color }) => <TabBarIcon name="graduation-cap" color={color} />,
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate('Meu Perfil')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}>
+              <FontAwesome
+                name="user-circle"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15, color: '#fff' }}
+              />
+            </Pressable>
+          ),
+        })}
+      />
+      <BottomTab.Screen
+        name="Requests"
+        component={RequestsScreen}
+        options={({ navigation }: RootTabScreenProps<'Requests'>) => ({
+          title: 'Pedidos',
+          tabBarStyle: { backgroundColor: '#005a8c' },
+          tabBarIcon: ({ color }) => <FontAwesome5 name="file-signature" color={color} size={20} style={{ marginBottom: -3 }} />,
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate('Meu Perfil')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}>
+              <FontAwesome
+                name="user-circle"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15, color: '#fff' }}
+              />
+            </Pressable>
+          ),
+        })}
+      />
+      <BottomTab.Screen
+        name="More"
+        component={MoreScreen}
+        options={({ navigation }: RootTabScreenProps<'More'>) => ({
+          title: 'Mais',
+          tabBarStyle: { backgroundColor: '#005a8c' },
+          tabBarIcon: ({ color }) => <Entypo name="dots-three-horizontal" size={20} color={color} style={{ marginBottom: -3 }} />,
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate('Meu Perfil')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}>
+              <FontAwesome
+                name="user-circle"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15, color: '#fff' }}
+              />
+            </Pressable>
+          ),
+        })}
+      />
     </BottomTab.Navigator>
   );
 }
@@ -128,5 +200,5 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome size={20} style={{ marginBottom: -3 }} {...props} />;
 }
