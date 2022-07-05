@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
         borderLeftColor: '#ff8c28',
         borderLeftWidth: 5,
         borderRadius: 5,
+        backgroundColor: '#FFF'
     },
     bigContainer: {
         width: 365,
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
         borderLeftColor: '#ff8c28',
         borderLeftWidth: 5,
         borderRadius: 5,
+        backgroundColor: '#fff'
     },
     textContainer: {
         fontSize: 16,

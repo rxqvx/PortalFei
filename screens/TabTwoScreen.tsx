@@ -1,8 +1,6 @@
 import { StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
 
 import { View, Text } from '../components/Themed';
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = windowWidth * (100 / 55);
 import React from 'react'
 import * as SecureStore from 'expo-secure-store';
 import { AppContext } from '../contexts/appContext';
@@ -34,10 +32,6 @@ export default function TabTwoScreen() {
 
   return (
     <View style={styles.container}>
-      {/* <Image
-        style={{ width: windowWidth, height: windowHeight }}
-        source={require('../assets/images/1.png')}
-      /> */}
       <ScrollView>
         <View style={styles.divsHome}>
           <Text style={styles.title1}>Atenção</Text>
@@ -76,7 +70,6 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   title1: {
-    // padding: 10,
     paddingLeft: 10,
     color: 'red',
     fontSize: 22,
