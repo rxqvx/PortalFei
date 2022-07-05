@@ -30,20 +30,20 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         <TextInput
           onChangeText={newText => handleUserNameInputChange(newText)}
           placeholder="Ex.: HENRIQUE"
-          value={username}
           keyboardType="default"
         />
         <Button title="Clear" onPress={() => setUsername('')} />
       </View>
       <View style={styles.container}>
+        <Button title="Clear All" onPress={() => setUsername('')} />
+      </View>
+      <View style={styles.container}>
         <Text style={{ color: '#000' }}>Insira o usuário:</Text>
         <TextInput
           onChangeText={handleNickNameInputChange}
-          value={nickname}
           placeholder="Ex.: unifhkonishi"
           keyboardType="default"
         />
-        {/* criar função e passar no onPress pra setarnickname como vazio e salvar no localstorage tb */}
         <Button title="Clear" onPress={() => setNickname('')} />
 
       </View>
