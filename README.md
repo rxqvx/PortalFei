@@ -6,7 +6,7 @@ Projeto para simular um portal de faculdade, apenas para testes e aprendizado
 use o nvm caso for instalar o node que virá com o npm, ai para instalar o yarn só usar o comando:
 ```npm install -g yarn```
 
-<b>As Dependências abaixo não precisam ser instaladas, pois só com o npm install já funciona, porém deixarei listado mesmo assim caso precise.<b>
+<b>As Dependências abaixo não precisam ser instaladas, pois só com o npm install já funciona, porém deixarei listado mesmo assim caso precise.</b>
 - Secure Store
 ```yarn expo install expo-secure-store```
 
